@@ -25,12 +25,7 @@ app.use('/google', proxy(GOOGLE_DOMAIN, {
     }
 }))
 
-app.use('/mercado', proxy(MERCADO_LIVRE_DOMAIN, {
-    userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
-        return proxyResData
-            .toString()
-    }
-}))
+app.use('/mercado', proxy(MERCADO_LIVRE_DOMAIN))
 
 
 
