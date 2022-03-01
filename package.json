@@ -8,7 +8,7 @@
     "build": "tsc"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cássio da Silva Carneiro",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

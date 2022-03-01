@@ -11,21 +11,8 @@ const app = express()
 
 app.get('/test', (req, res) => res.json({ ok: true, date: new Date() }))
 
-
-
-// app.use('/google', (req, res) => {
-//     const domain = 'https://www.google.com.br/'
-//     req.
-//     res.pipe(domain)
-// })
-
-// app.use('/google',(req,res) => {
-//     req.pipe()
-// })
-
 app.use('/google', proxy(GOOGLE_DOMAIN, {
     userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
-        // console.log('proxyResData :>> ', proxyResData + '');
         return proxyResData
             .toString()
             .replace(/(href=[\"\'])\//g, '$1/google/')
@@ -40,10 +27,8 @@ app.use('/google', proxy(GOOGLE_DOMAIN, {
 
 app.use('/mercado', proxy(MERCADO_LIVRE_DOMAIN, {
     userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
-        // console.log('proxyResData :>> ', proxyResData + '');
         return proxyResData
             .toString()
-        // .replace(/\/images\//g, '/google/images/')
     }
 }))
 
